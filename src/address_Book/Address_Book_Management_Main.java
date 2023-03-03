@@ -14,6 +14,7 @@ public class Address_Book_Management_Main {
 
         add();
         edit();
+        delete();
 //        int exit=0;
 //        do{
 //            switch (input){
@@ -95,6 +96,23 @@ public class Address_Book_Management_Main {
         }
 //        Contact contact =Contact.getName();
     }
+
+    public static void delete(){
+        System.out.println("Enter Name to delete that address book :");
+        Scanner sc = new Scanner(System.in);
+        String deleteNameContact=sc.nextLine();
+//        Contact contact;
+        for(Contact contact : cotacts_array){
+            if (deleteNameContact.equals(contact.getName())){
+                cotacts_array.remove(contact);
+                System.out.println("Contact Deleted ....");
+            }else {
+                System.out.println("Not Found");
+            }
+        }
+    }
+
+
 }
 
 
