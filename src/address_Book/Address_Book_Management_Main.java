@@ -7,14 +7,21 @@ public class Address_Book_Management_Main {
     public static ArrayList<Contact> cotacts_array=new ArrayList<>();
 
     public static void main(String[] args) {
-        System.out.println("---   Welcome to Address Book   ---");
-        System.out.println("      Enter Number 1(add) , 0(Exit) , 2(edit)    ");
+        System.out.println("      ~ Welcome to Address Book ~      ");
+//        System.out.println("      Enter Number 1(add) , 0(Exit) , 2(edit)    ");
         Scanner sc =new Scanner(System.in);
-        int input =sc.nextInt();
+//        int input =sc.nextInt();
+        int exit=1;
 
-        add();
-        edit();
-        delete();
+
+        do {
+            add();
+            edit();
+            delete();
+            System.out.println("To add new Contact press 1-9  To Exit press ' 0 ' ");
+            exit =sc.nextInt();
+        }while (exit!=0);
+
 //        int exit=0;
 //        do{
 //            switch (input){
@@ -43,6 +50,7 @@ public class Address_Book_Management_Main {
         System.out.println("Enter First Name :");
         String name=sc.nextLine();
 
+
         System.out.println("Enter Last Name :");
         String last_n=sc.nextLine();
 
@@ -57,14 +65,13 @@ public class Address_Book_Management_Main {
 
         Contact contact = new Contact(name, last_n, city, number, email);
         cotacts_array.add(contact);
-        System.out.println("Contact Added Successfully...");
-
+//        System.out.println("Contact Added Successfully...");
     }
     static void edit() {
         System.out.println("Enter Name to check");
         Scanner sc = new Scanner(System.in);
         String newName = sc.nextLine();
-//Contact contact;
+
         for(Contact contact : cotacts_array){
             if(newName.equals(contact.getName())){
 
@@ -94,7 +101,6 @@ public class Address_Book_Management_Main {
                 System.out.println("Sorry Not found");
             }
         }
-//        Contact contact =Contact.getName();
     }
 
     public static void delete(){
@@ -107,11 +113,10 @@ public class Address_Book_Management_Main {
                 cotacts_array.remove(contact);
                 System.out.println("Contact Deleted ....");
             }else {
-                System.out.println("Not Found");
+                System.out.println("Values you enter Not Found");
             }
         }
     }
-
 
 }
 
