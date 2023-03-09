@@ -25,6 +25,7 @@ public class Contact {
             this.zip = zip;
         }
 
+        //-------------     Get Daetails  ----------------------------------------
         public String getName(){return name;}
         public String getLast_N(){return last_N;}
         public String getCity(){return city;}
@@ -33,6 +34,7 @@ public class Contact {
         public String getAddress(){return address;}
         public String getZip(){return zip;}
 
+    ////-------------   Set Details Like Name=arpit ----------------------------------------
         public String setName(String new_name){
             this.name=new_name;
             return new_name;
@@ -64,6 +66,4 @@ public class Contact {
             this.email=new_zip;
             return new_zip;
         }
-
-//    }
 }

@@ -12,37 +12,40 @@ public class AddressBook {
     }
     public String getBookName(){return getBookName;}
 
-     void add(){
+    //------------------        Adding person Details       -----------------------
+     void addPersonDetails(){
 //        AddressBook addressBook=new AddressBook();
         Scanner sc=new Scanner(System.in);
 
-        System.out.println("Enter First Name :");
+        System.out.println("          Enter First Name :");
         String name=sc.nextLine();
 
-        System.out.println("Enter Last Name :");
+        System.out.println("          Enter Last Name :");
         String last_n=sc.nextLine();
 
-        System.out.println("Enter City :");
+        System.out.println("          Enter City :");
         String city = sc.nextLine();
 
-        System.out.println("Enter Number :");
+        System.out.println("          Enter Number :");
         String number = sc.nextLine();
 
-        System.out.println("Enter email :");
+        System.out.println("          Enter email :");
         String email=sc.nextLine();
 
-        System.out.println("Enter address :");
+        System.out.println("          Enter address :");
         String address=sc.nextLine();
 
-        System.out.println("Enter zip :");
+        System.out.println("          Enter zip :");
         String zip=sc.nextLine();
 
         Contact contact = new Contact(name, last_n, city, number, email);
         cotacts_array.add(contact);
 //        System.out.println("Contact Added Successfully...");
     }
-    static void edit() {
-        System.out.println("Enter existing 'Email' and 'Number' to check");
+
+    //------------------        Edit person Details      -----------------------
+    static void editPersonDetails() {
+        System.out.println("    Enter existing 'Email' and 'Number' to EDIT    ");
         Scanner sc = new Scanner(System.in);
         String checkE = sc.nextLine();
         String checkNum =sc.nextLine();
@@ -50,25 +53,25 @@ public class AddressBook {
         for(Contact contact : cotacts_array){
             if(checkE.equals(contact.getEmail()) && checkE.equals(contact.getEmail())){
 
-                System.out.println("Enter Update First Name :");
+                System.out.println("          Enter Update First Name :");
                 String New_name=sc.nextLine();
 
-                System.out.println("Enter Update Last Name :");
+                System.out.println("          Enter Update Last Name :");
                 String New_last_n=sc.nextLine();
 
-                System.out.println("Enter Update City :");
+                System.out.println("          Enter Update City :");
                 String New_city = sc.nextLine();
 
-                System.out.println("Enter Update Number :");
+                System.out.println("          Enter Update Number :");
                 String New_number = sc.nextLine();
 
-                System.out.println("Enter Update email :");
+                System.out.println("          Enter Update email :");
                 String New_email=sc.nextLine();
 
-                System.out.println("Enter Update Address :");
+                System.out.println("          Enter Update Address :");
                 String new_address=sc.nextLine();
 
-                System.out.println("Enter Update zip :");
+                System.out.println("          Enter Update zip :");
                 String new_zip=sc.nextLine();
 
                 contact.setName(New_name);
@@ -86,8 +89,9 @@ public class AddressBook {
         }
     }
 
-     static void delete() {
-        System.out.println("Enter Name to delete that address book :");
+    //------------------        Delete person Details       -----------------------
+     static void deletePersonDetails() {
+        System.out.println("    Enter Name to delete that CONTACT :");
         Scanner sc = new Scanner(System.in);
         String deleteNameContact = sc.nextLine();
 //        Contact contact;
