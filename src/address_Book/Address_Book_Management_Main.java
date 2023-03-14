@@ -21,6 +21,8 @@ public class Address_Book_Management_Main {
        do {
            System.out.println("       ~ ~ ~ Enter BOOK Name ~ ~ ~         ");
            String getBookName=get.next();
+
+// ---------- To Add AddressBook 2nd time (check)----------------------------------------------
            for (AddressBook addBook : addressBook_arr) {
                System.out.println("Nothing" + addBook);
                if (getBookName.equals(addBook.getBookName())) {
@@ -32,6 +34,8 @@ public class Address_Book_Management_Main {
                    addressBook_arr.add(addressBook);
                    System.out.println("Address Book Added ...");
                    check = 0;
+
+                   //--------T0 add contact
                    Scanner sc =new Scanner(System.in);
                    System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  :: To EXIT ( 0 ZERO ) ~ ~ ~             ");
                     int exit=sc.nextInt();
@@ -42,14 +46,15 @@ public class Address_Book_Management_Main {
                         System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
                         exit =sc.nextInt();
                     }
-// --------------------------------------------------------
                }
            }
+// ---------- To Add AddressBook 1st time (check)----------------------------------------------
                    if (check == 1) {
                        AddressBook addressBook = new AddressBook(getBookName);
                        addressBook_arr.add(addressBook);
                        System.out.println("Address Book Added ...");
-                       //               System.out.println(" if You Want to add Contact   Enter Number 1(add) , 0(Exit) , 2(edit)  ,3(delete)  ");
+
+                       //--------T0 add contact
                        Scanner sc =new Scanner(System.in);
                        System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
                         int exit=sc.nextInt();

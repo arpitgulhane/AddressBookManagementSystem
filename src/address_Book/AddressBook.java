@@ -21,7 +21,7 @@ public class AddressBook {
         String name=sc.nextLine();
 
         System.out.println("          Enter Last Name :");
-        String last_n=sc.nextLine();
+        String last_Name=sc.nextLine();
 
         System.out.println("          Enter City :");
         String city = sc.nextLine();
@@ -38,7 +38,7 @@ public class AddressBook {
         System.out.println("          Enter zip :");
         String zip=sc.nextLine();
 
-        Contact contact = new Contact(name, last_n, city, number, email);
+        Contact contact = new Contact(name, last_Name, city, number, email);
         cotacts_array.add(contact);
 //        System.out.println("Contact Added Successfully...");
     }
@@ -57,7 +57,7 @@ public class AddressBook {
                 String New_name=sc.nextLine();
 
                 System.out.println("          Enter Update Last Name :");
-                String New_last_n=sc.nextLine();
+                String New_last_Name=sc.nextLine();
 
                 System.out.println("          Enter Update City :");
                 String New_city = sc.nextLine();
@@ -75,7 +75,7 @@ public class AddressBook {
                 String new_zip=sc.nextLine();
 
                 contact.setName(New_name);
-                contact.setLast_N(New_last_n);
+                contact.setLast_N(New_last_Name);
                 contact.setCity(New_city);
                 contact.setNumber(New_number);
                 contact.setEmail(New_email);

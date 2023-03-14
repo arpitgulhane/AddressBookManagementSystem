@@ -8,7 +8,7 @@ public class Contact {
         }
         //String name,String lasttN,String city,String number,String email
         private String name;
-        private String last_N;
+        private String last_Name;
         private String city;
         private String number;
         private String email;
@@ -17,7 +17,7 @@ public class Contact {
 
         public Contact(String name,String lasttN,String city,String number,String email){
             this.name = name;
-            this.last_N = lasttN;
+            this.last_Name = lasttN;
             this.city = city;
             this.number = number;
             this.email = email;
@@ -27,7 +27,7 @@ public class Contact {
 
         //-------------     Get Daetails  ----------------------------------------
         public String getName(){return name;}
-        public String getLast_N(){return last_N;}
+        public String getLast_N(){return last_Name;}
         public String getCity(){return city;}
         public String getNumber(){return number;}
         public String getEmail(){return email;}
@@ -40,9 +40,9 @@ public class Contact {
             return new_name;
         }
 
-        public String setLast_N(String new_Last_N){
-            this.last_N=new_Last_N;
-            return new_Last_N;
+        public String setLast_N(String new_last_Name){
+            this.last_Name=new_last_Name;
+            return new_last_Name;
         }
 
         public String setCity(String new_City){
