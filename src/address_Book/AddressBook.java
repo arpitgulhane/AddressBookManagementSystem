@@ -26,6 +26,9 @@ public class AddressBook {
         System.out.println("          Enter City :");
         String city = sc.nextLine();
 
+         System.out.println("          Enter State :");
+         String state = sc.nextLine();
+
         System.out.println("          Enter Number :");
         String number = sc.nextLine();
 
@@ -38,7 +41,7 @@ public class AddressBook {
         System.out.println("          Enter zip :");
         String zip=sc.nextLine();
 
-        Contact contact = new Contact(name, last_Name, city, number, email);
+        Contact contact = new Contact(name, last_Name, city,state, number, email,address,zip);
         cotacts_array.add(contact);
 //        System.out.println("Contact Added Successfully...");
     }
@@ -51,7 +54,7 @@ public class AddressBook {
         String checkNum =sc.nextLine();
 
         for(Contact contact : cotacts_array){
-            if(checkE.equals(contact.getEmail()) && checkE.equals(contact.getEmail())){
+            if(checkE.equals(contact.getEmail()) && checkNum.equals(contact.getNumber())){
 
                 System.out.println("          Enter Update First Name :");
                 String New_name=sc.nextLine();
@@ -77,10 +80,11 @@ public class AddressBook {
                 contact.setName(New_name);
                 contact.setLast_N(New_last_Name);
                 contact.setCity(New_city);
+                contact.setState(New_city);
                 contact.setNumber(New_number);
                 contact.setEmail(New_email);
-                contact.setEmail(new_address);
-                contact.setEmail(new_zip);
+                contact.setAddress(new_address);
+                contact.setZip(new_zip);
 
                 System.out.println("Update ...");
             }else {
@@ -104,4 +108,26 @@ public class AddressBook {
             }
         }
     }
+
+
+//    public void printContacts() {
+////        if (Contact.isEmpty()) {
+////            System.out.println("No contacts in address book");
+////        } else {
+////            for (ContactPerson contact : contacts) {
+////                System.out.println(contact);
+////            }
+////        }
+//
+////            System.out.println("No contacts in address book");
+////        } else {
+//        for (Contact contact : cotacts_array) {
+//            if (contact.getName()!=null) {
+////                cotacts_array.remove(contact);
+//                System.out.println("==============="+contact);
+//            } else {
+//                System.out.println("Values Not Found");
+//            }
+//        }
+//    }
     }

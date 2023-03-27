@@ -10,15 +10,17 @@ public class Contact {
         private String name;
         private String last_Name;
         private String city;
+        private String state;
         private String number;
         private String email;
         private String address;
         private String zip;
 
-        public Contact(String name,String lasttN,String city,String number,String email){
+        public Contact(String name,String lasttN,String city,String state,String number,String email,String address,String zip){
             this.name = name;
             this.last_Name = lasttN;
             this.city = city;
+            this.state = state;
             this.number = number;
             this.email = email;
             this.address = address;
@@ -29,6 +31,7 @@ public class Contact {
         public String getName(){return name;}
         public String getLast_N(){return last_Name;}
         public String getCity(){return city;}
+        public String getState(){return state;}
         public String getNumber(){return number;}
         public String getEmail(){return email;}
         public String getAddress(){return address;}
@@ -48,6 +51,10 @@ public class Contact {
         public String setCity(String new_City){
             this.city=new_City;
             return new_City;
+        }
+        public String setState(String new_State){
+            this.state=new_State;
+            return new_State;
         }
 
         public String setNumber(String new_Number){

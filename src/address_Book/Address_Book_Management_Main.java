@@ -42,7 +42,9 @@ public class Address_Book_Management_Main {
                     while (exit!=0){
                         addressBook.addPersonDetails();
                         addressBook.editPersonDetails();
+//                        addressBook.searchDetailsByCityOrState();
                         addressBook.deletePersonDetails();
+//                        addressBook.printContacts();
                         System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
                         exit =sc.nextInt();
                     }
@@ -61,7 +63,9 @@ public class Address_Book_Management_Main {
                             while (exit!=0){
                                    addressBook.addPersonDetails();
                                    addressBook.editPersonDetails();
+//                                   addressBook.searchDetailsByCityOrState();
                                    addressBook.deletePersonDetails();
+//                                   addressBook.printContacts();
                                    System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To EXIT press (0 ZERO) ~ ~ ~             ");
                                    exit =sc.nextInt();
                             }
