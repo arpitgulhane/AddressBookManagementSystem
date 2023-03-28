@@ -42,12 +42,10 @@ public class Contact {
             this.name=new_name;
             return new_name;
         }
-
         public String setLast_N(String new_last_Name){
             this.last_Name=new_last_Name;
             return new_last_Name;
         }
-
         public String setCity(String new_City){
             this.city=new_City;
             return new_City;
@@ -56,7 +54,6 @@ public class Contact {
             this.state=new_State;
             return new_State;
         }
-
         public String setNumber(String new_Number){
             this.name=new_Number;
             return new_Number;

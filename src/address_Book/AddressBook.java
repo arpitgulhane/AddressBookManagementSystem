@@ -1,6 +1,7 @@
 package address_Book;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -16,31 +17,26 @@ public class AddressBook {
      void addPersonDetails(){
 //        AddressBook addressBook=new AddressBook();
         Scanner sc=new Scanner(System.in);
-
         System.out.println("          Enter First Name :");
         String name=sc.nextLine();
-
+        if(isDuplicate(name)){
+            System.out.println(name+"Already in contacts ...");
+            return;
+        }
         System.out.println("          Enter Last Name :");
         String last_Name=sc.nextLine();
-
         System.out.println("          Enter City :");
         String city = sc.nextLine();
-
          System.out.println("          Enter State :");
          String state = sc.nextLine();
-
         System.out.println("          Enter Number :");
         String number = sc.nextLine();
-
         System.out.println("          Enter email :");
         String email=sc.nextLine();
-
         System.out.println("          Enter address :");
         String address=sc.nextLine();
-
         System.out.println("          Enter zip :");
         String zip=sc.nextLine();
-
         Contact contact = new Contact(name, last_Name, city,state, number, email,address,zip);
         cotacts_array.add(contact);
 //        System.out.println("Contact Added Successfully...");
@@ -55,28 +51,20 @@ public class AddressBook {
 
         for(Contact contact : cotacts_array){
             if(checkE.equals(contact.getEmail()) && checkNum.equals(contact.getNumber())){
-
                 System.out.println("          Enter Update First Name :");
                 String New_name=sc.nextLine();
-
                 System.out.println("          Enter Update Last Name :");
                 String New_last_Name=sc.nextLine();
-
                 System.out.println("          Enter Update City :");
                 String New_city = sc.nextLine();
-
                 System.out.println("          Enter Update Number :");
                 String New_number = sc.nextLine();
-
                 System.out.println("          Enter Update email :");
                 String New_email=sc.nextLine();
-
                 System.out.println("          Enter Update Address :");
                 String new_address=sc.nextLine();
-
                 System.out.println("          Enter Update zip :");
                 String new_zip=sc.nextLine();
-
                 contact.setName(New_name);
                 contact.setLast_N(New_last_Name);
                 contact.setCity(New_city);
@@ -85,7 +73,6 @@ public class AddressBook {
                 contact.setEmail(New_email);
                 contact.setAddress(new_address);
                 contact.setZip(new_zip);
-
                 System.out.println("Update ...");
             }else {
                 System.out.println("Sorry Not found");
@@ -109,6 +96,38 @@ public class AddressBook {
         }
     }
 
+    boolean isDuplicate(String checkDuplicate){
+        checkDuplicate = checkDuplicate.toLowerCase();
+        for (Contact contact : cotacts_array) {
+        if(checkDuplicate.equals(contact.getName().toLowerCase())){
+            return true;
+        }
+        }
+        return false;
+    }
+
+    static void searchDetailsByCityOrState() {
+        System.out.println("    Enter City Or State to search :");
+        Scanner sc = new Scanner(System.in);
+        String search_CityOrState = sc.nextLine();
+        int i=1;
+        for (Contact contact : cotacts_array) {
+            if (search_CityOrState.equals(contact.getCity()) || search_CityOrState.equals(contact.getState())) {
+                System.out.println(i+" Contacts are :");
+                System.out.println(contact.getName());
+                System.out.println(contact.getLast_N());
+                System.out.println(contact.getCity());
+                System.out.println(contact.getState());
+                System.out.println(contact.getEmail());
+                System.out.println(contact.getNumber());
+                System.out.println(contact.getAddress());
+                System.out.println(contact.getZip());
+                i++;
+            } else {
+                System.out.println("Not Found By "+search_CityOrState);
+            }
+        }
+    }
 
 //    public void printContacts() {
 ////        if (Contact.isEmpty()) {

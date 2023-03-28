@@ -40,11 +40,26 @@ public class Address_Book_Management_Main {
                    System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  :: To EXIT ( 0 ZERO ) ~ ~ ~             ");
                     int exit=sc.nextInt();
                     while (exit!=0){
-                        addressBook.addPersonDetails();
-                        addressBook.editPersonDetails();
-//                        addressBook.searchDetailsByCityOrState();
-                        addressBook.deletePersonDetails();
-//                        addressBook.printContacts();
+                        Scanner sc1 =new Scanner(System.in);
+                        System.out.print("Enter command (add, edit , searchcitystate, delete, exit): ");
+                        String command =sc1.nextLine();
+                        switch (command) {
+                            case "add":
+                                addressBook.addPersonDetails();
+                                break;
+                            case "edit":
+                                addressBook.editPersonDetails();
+                                break;
+                            case "searchcitystate":
+                                addressBook.searchDetailsByCityOrState();
+                                break;
+                            case "delete":
+                                addressBook.deletePersonDetails();
+                                break;
+                            case "exit":
+                                break;
+//                                   addressBook.printContacts();
+                        }
                         System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
                         exit =sc.nextInt();
                     }
@@ -60,12 +75,27 @@ public class Address_Book_Management_Main {
                        Scanner sc =new Scanner(System.in);
                        System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
                         int exit=sc.nextInt();
+                       Scanner sc2 =new Scanner(System.in);
                             while (exit!=0){
-                                   addressBook.addPersonDetails();
-                                   addressBook.editPersonDetails();
-//                                   addressBook.searchDetailsByCityOrState();
-                                   addressBook.deletePersonDetails();
+                                System.out.print("Enter command (add, edit , searchcitystate, delete, exit): ");
+                                String command =sc2.nextLine();
+                                switch (command) {
+                                    case "add":
+                                        addressBook.addPersonDetails();
+                                        break;
+                                    case "edit":
+                                        addressBook.editPersonDetails();
+                                        break;
+                                    case "searchcitystate":
+                                        addressBook.searchDetailsByCityOrState();
+                                        break;
+                                    case "delete":
+                                        addressBook.deletePersonDetails();
+                                        break;
+                                    case "exit":
+                                        break;
 //                                   addressBook.printContacts();
+                                }
                                    System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To EXIT press (0 ZERO) ~ ~ ~             ");
                                    exit =sc.nextInt();
                             }
