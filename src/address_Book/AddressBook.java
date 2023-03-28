@@ -20,7 +20,7 @@ public class AddressBook {
         System.out.println("          Enter First Name :");
         String name=sc.nextLine();
         if(isDuplicate(name)){
-            System.out.println(name+"Already in contacts ...");
+            System.out.println(name+"  Already in contacts ...");
             return;
         }
         System.out.println("          Enter Last Name :");
