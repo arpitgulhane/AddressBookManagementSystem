@@ -1,11 +1,13 @@
 package address_Book;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Address_Book_Management_Main {
     public static ArrayList<AddressBook> addressBook_arr = new ArrayList<>();
 //    public static ArrayList<Contact> cotacts_array=new ArrayList<>();
+    List<Contact> contactsInAnycity ;
 
     public static void main(String[] args) {
         System.out.println("      ~ Welcome to Address Book ~      ");
@@ -46,6 +48,7 @@ public class Address_Book_Management_Main {
                         switch (command) {
                             case "add":
                                 addressBook.addPersonDetails();
+//                                contactsInAnycity  addressBook.getContactsByCity();
                                 break;
                             case "edit":
                                 addressBook.editPersonDetails();
@@ -77,7 +80,7 @@ public class Address_Book_Management_Main {
                         int exit=sc.nextInt();
                        Scanner sc2 =new Scanner(System.in);
                             while (exit!=0){
-                                System.out.print("Enter command (add, edit , searchcitystate, delete, exit): ");
+                                System.out.print("Enter command (add, edit , searchcitystate,ContactsByCity,ContactsByState ,ContactCountByCity,ContactCountByState, delete, exit): ");
                                 String command =sc2.nextLine();
                                 switch (command) {
                                     case "add":
@@ -88,6 +91,18 @@ public class Address_Book_Management_Main {
                                         break;
                                     case "searchcitystate":
                                         addressBook.searchDetailsByCityOrState();
+                                        break;
+                                    case "ContactsByCity":
+                                        addressBook.getContactsByCity();
+                                        break;
+                                    case "ContactsByState":
+                                        addressBook.getContactsByState();
+                                        break;
+                                    case "ContactCountByCity":
+                                        addressBook.getContactCountByCity();
+                                        break;
+                                    case "ContactCountByState":
+                                        addressBook.getContactCountByState();
                                         break;
                                     case "delete":
                                         addressBook.deletePersonDetails();

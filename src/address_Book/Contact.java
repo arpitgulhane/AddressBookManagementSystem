@@ -1,8 +1,6 @@
 package address_Book;
 
 public class Contact {
-
-//    class Contact{
         public static void display(){
             System.out.println("Display");
         }

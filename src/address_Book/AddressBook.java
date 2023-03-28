@@ -1,18 +1,19 @@
 package address_Book;
 
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBook {
     public static ArrayList<Contact> cotacts_array=new ArrayList<>();
-
+    private Map<String, List<Contact>> cityDictionary = new HashMap<>();
+    private Map<String, List<Contact>> stateDictionary = new HashMap<>();
+    List<Contact> contactsInAnycity ;
+    List<Contact> contactsInCA;
+//    AddressBook addressBook = new AddressBook();
     private String getBookName;
     public AddressBook(String getBookName ){
         this.getBookName=getBookName;
     }
     public String getBookName(){return getBookName;}
-
     //------------------        Adding person Details       -----------------------
      void addPersonDetails(){
 //        AddressBook addressBook=new AddressBook();
@@ -38,6 +39,7 @@ public class AddressBook {
         System.out.println("          Enter zip :");
         String zip=sc.nextLine();
         Contact contact = new Contact(name, last_Name, city,state, number, email,address,zip);
+         addContactToDictionary(contact);
         cotacts_array.add(contact);
 //        System.out.println("Contact Added Successfully...");
     }
@@ -128,6 +130,77 @@ public class AddressBook {
             }
         }
     }
+
+
+    public void addContactToDictionary(Contact contact) {
+        String city = contact.getCity();
+        String state = contact.getState();
+        if(!cityDictionary.containsKey(city)){
+            cityDictionary.put(city,new ArrayList<>());
+        }
+        cityDictionary.get(city).add(contact);
+
+        if (!stateDictionary.containsKey(state)){
+            stateDictionary.put(state , new ArrayList<>());
+        }
+        stateDictionary.get(state).add(contact);
+    }
+
+//    List<ContactPerson> contactsInAnycity = addressBook.getContactsByCity("Anycity");
+//System.out.println("Contacts in Anycity:");
+//for (ContactPerson contact : contactsInAnycity) {
+//        System.out.println(contact);
+//    }
+//
+//    // Get contacts by state
+//    List<ContactPerson> contactsInCA = addressBook.getContactsByState("CA");
+//System.out.println("Contacts in California:");
+//for (ContactPerson contact : contactsInCA) {
+//        System.out.println(contact); }
+//public List<ContactPerson> getContactsByCity(String city) {
+//    if (cityDictionary.containsKey(city)) {
+//        return cityDictionary.get(city);
+//    } else {
+//        return new ArrayList<>();
+//    }
+//}
+//
+//    public List<ContactPerson> getContactsByState(String state) {
+//        if (stateDictionary.containsKey(state)) {
+//            return stateDictionary.get(state);
+//        } else {
+//            return new ArrayList<>();
+//        }
+//    }
+    public List<Contact> getContactsByCity() {
+        System.out.println("To get contact by city enter City Name :");
+        Scanner sc=new Scanner(System.in);
+        String city=sc.nextLine();
+        // check in Dictionary
+        if (cityDictionary.containsKey(city)) {
+             cityDictionary.get(city);
+        } else {
+             new ArrayList<>();
+        }
+        for (Contact contact : contactsInAnycity) {
+        System.out.println(contact);
+    }
+        return null;
+    }
+    public List<Contact> getContactsByState() {
+        System.out.println("To get contact by city enter City Name :");
+        Scanner sc=new Scanner(System.in);
+        String state=sc.nextLine();
+        if (stateDictionary.containsKey(state)) {
+            stateDictionary.get(state);
+        } else {
+            new ArrayList<>();
+        }
+        for (Contact contact : contactsInCA) {
+        System.out.println(contact); }
+        return null;
+    }
+
 
 //    public void printContacts() {
 ////        if (Contact.isEmpty()) {
