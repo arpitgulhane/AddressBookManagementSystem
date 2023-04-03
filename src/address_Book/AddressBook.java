@@ -1,45 +1,51 @@
 package address_Book;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBook {
-    public static ArrayList<Contact> cotacts_array=new ArrayList<>();
+    public static ArrayList<Contact> cotacts_array = new ArrayList<>();
     private Map<String, List<Contact>> cityDictionary = new HashMap<>();
     private Map<String, List<Contact>> stateDictionary = new HashMap<>();
-    List<Contact> contactsInAnycity ;
+    List<Contact> contactsInAnycity;
     List<Contact> contactsInCA;
-//    AddressBook addressBook = new AddressBook();
+    //    AddressBook addressBook = new AddressBook();
     private String getBookName;
-    public AddressBook(String getBookName ){
-        this.getBookName=getBookName;
+
+    public AddressBook(String getBookName) {
+        this.getBookName = getBookName;
     }
-    public String getBookName(){return getBookName;}
+
+    public String getBookName() {
+        return getBookName;
+    }
+
     //------------------        Adding person Details       -----------------------
-     void addPersonDetails(){
+    void addPersonDetails() {
 //        AddressBook addressBook=new AddressBook();
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("          Enter First Name :");
-        String name=sc.nextLine();
-        if(isDuplicate(name)){
-            System.out.println(name+"  Already in contacts ...");
+        String name = sc.nextLine();
+        if (isDuplicate(name)) {
+            System.out.println(name + "  Already in contacts ...");
             return;
         }
         System.out.println("          Enter Last Name :");
-        String last_Name=sc.nextLine();
+        String last_Name = sc.nextLine();
         System.out.println("          Enter City :");
         String city = sc.nextLine();
-         System.out.println("          Enter State :");
-         String state = sc.nextLine();
+        System.out.println("          Enter State :");
+        String state = sc.nextLine();
         System.out.println("          Enter Number :");
         String number = sc.nextLine();
         System.out.println("          Enter email :");
-        String email=sc.nextLine();
+        String email = sc.nextLine();
         System.out.println("          Enter address :");
-        String address=sc.nextLine();
+        String address = sc.nextLine();
         System.out.println("          Enter zip :");
-        String zip=sc.nextLine();
-        Contact contact = new Contact(name, last_Name, city,state, number, email,address,zip);
-         addContactToDictionary(contact);
+        String zip = sc.nextLine();
+        Contact contact = new Contact(name, last_Name, city, state, number, email, address, zip);
+        addContactToDictionary(contact);
         cotacts_array.add(contact);
 //        System.out.println("Contact Added Successfully...");
     }
@@ -49,24 +55,24 @@ public class AddressBook {
         System.out.println("    Enter existing 'Email' and 'Number' to EDIT    ");
         Scanner sc = new Scanner(System.in);
         String checkE = sc.nextLine();
-        String checkNum =sc.nextLine();
+        String checkNum = sc.nextLine();
 
-        for(Contact contact : cotacts_array){
-            if(checkE.equals(contact.getEmail()) && checkNum.equals(contact.getNumber())){
+        for (Contact contact : cotacts_array) {
+            if (checkE.equals(contact.getEmail()) && checkNum.equals(contact.getNumber())) {
                 System.out.println("          Enter Update First Name :");
-                String New_name=sc.nextLine();
+                String New_name = sc.nextLine();
                 System.out.println("          Enter Update Last Name :");
-                String New_last_Name=sc.nextLine();
+                String New_last_Name = sc.nextLine();
                 System.out.println("          Enter Update City :");
                 String New_city = sc.nextLine();
                 System.out.println("          Enter Update Number :");
                 String New_number = sc.nextLine();
                 System.out.println("          Enter Update email :");
-                String New_email=sc.nextLine();
+                String New_email = sc.nextLine();
                 System.out.println("          Enter Update Address :");
-                String new_address=sc.nextLine();
+                String new_address = sc.nextLine();
                 System.out.println("          Enter Update zip :");
-                String new_zip=sc.nextLine();
+                String new_zip = sc.nextLine();
                 contact.setName(New_name);
                 contact.setLast_N(New_last_Name);
                 contact.setCity(New_city);
@@ -76,14 +82,14 @@ public class AddressBook {
                 contact.setAddress(new_address);
                 contact.setZip(new_zip);
                 System.out.println("Update ...");
-            }else {
+            } else {
                 System.out.println("Sorry Not found");
             }
         }
     }
 
     //------------------        Delete person Details       -----------------------
-     static void deletePersonDetails() {
+    static void deletePersonDetails() {
         System.out.println("    Enter Name to delete that CONTACT :");
         Scanner sc = new Scanner(System.in);
         String deleteNameContact = sc.nextLine();
@@ -98,12 +104,12 @@ public class AddressBook {
         }
     }
 
-    boolean isDuplicate(String checkDuplicate){
+    boolean isDuplicate(String checkDuplicate) {
         checkDuplicate = checkDuplicate.toLowerCase();
         for (Contact contact : cotacts_array) {
-        if(checkDuplicate.equals(contact.getName().toLowerCase())){
-            return true;
-        }
+            if (checkDuplicate.equals(contact.getName().toLowerCase())) {
+                return true;
+            }
         }
         return false;
     }
@@ -112,10 +118,10 @@ public class AddressBook {
         System.out.println("    Enter City Or State to search :");
         Scanner sc = new Scanner(System.in);
         String search_CityOrState = sc.nextLine();
-        int i=1;
+        int i = 1;
         for (Contact contact : cotacts_array) {
             if (search_CityOrState.equals(contact.getCity()) || search_CityOrState.equals(contact.getState())) {
-                System.out.println(i+" Contacts are :");
+                System.out.println(i + " Contacts are :");
                 System.out.println(contact.getName());
                 System.out.println(contact.getLast_N());
                 System.out.println(contact.getCity());
@@ -126,7 +132,7 @@ public class AddressBook {
                 System.out.println(contact.getZip());
                 i++;
             } else {
-                System.out.println("Not Found By "+search_CityOrState);
+                System.out.println("Not Found By " + search_CityOrState);
             }
         }
     }
@@ -135,13 +141,13 @@ public class AddressBook {
     public void addContactToDictionary(Contact contact) {
         String city = contact.getCity();
         String state = contact.getState();
-        if(!cityDictionary.containsKey(city)){
-            cityDictionary.put(city,new ArrayList<>());
+        if (!cityDictionary.containsKey(city)) {
+            cityDictionary.put(city, new ArrayList<>());
         }
         cityDictionary.get(city).add(contact);
 
-        if (!stateDictionary.containsKey(state)){
-            stateDictionary.put(state , new ArrayList<>());
+        if (!stateDictionary.containsKey(state)) {
+            stateDictionary.put(state, new ArrayList<>());
         }
         stateDictionary.get(state).add(contact);
     }
@@ -172,7 +178,6 @@ public class AddressBook {
 //            return new ArrayList<>();
 //        }
 //    }
-
 
 
     // working code before Use Java Streams
@@ -231,42 +236,67 @@ public class AddressBook {
     //--------------------New by Streams ------------------------------
     public void getContactsByCity() {
         System.out.println("To get contact by city enter City Name :");
-        Scanner sc=new Scanner(System.in);
-        String city=sc.nextLine();
-        cityDictionary.getOrDefault(city, Collections.emptyList()).forEach(n-> System.out.println(n));
+        Scanner sc = new Scanner(System.in);
+        String city = sc.nextLine();
+        cityDictionary.getOrDefault(city, Collections.emptyList()).forEach(n -> System.out.println(n));
     }
 
     public void getContactsByState() {
         System.out.println("To get contact by city enter City Name :");
-        Scanner sc=new Scanner(System.in);
-        String state=sc.nextLine();
-        stateDictionary.getOrDefault(state, Collections.emptyList()).forEach(n-> System.out.println(n));
+        Scanner sc = new Scanner(System.in);
+        String state = sc.nextLine();
+        stateDictionary.getOrDefault(state, Collections.emptyList()).forEach(n -> System.out.println(n));
     }
 
     public void getContactCountByCity() {
         System.out.println("To get count enter City Name :");
-        Scanner sc=new Scanner(System.in);
-        String city=sc.nextLine();
+        Scanner sc = new Scanner(System.in);
+        String city = sc.nextLine();
         int count = cityDictionary.getOrDefault(city, Collections.emptyList()).size();
         System.out.println(count);
     }
 
     public void getContactCountByState() {
         System.out.println("To get count enter State Name :");
-        Scanner sc=new Scanner(System.in);
-        String state=sc.nextLine();
+        Scanner sc = new Scanner(System.in);
+        String state = sc.nextLine();
         int count = stateDictionary.getOrDefault(state, Collections.emptyList()).size();
         System.out.println(count);
     }
 
 
+    // Sort contacts by Zip using Java Streams
+    public void sortByZip() {
+        cotacts_array.stream()
+                .sorted(Comparator.comparing(Contact::getZip))
+                .collect(Collectors.toList());
+        System.out.println(" After Sort Zip : ");
+        this.display();
+    }
     public void sortByName() {
         Comparator<Contact> comparator = Comparator.comparing(Contact::getName)
                 .thenComparing(Contact::getLast_N);
         Collections.sort(this.cotacts_array, comparator);
     }
 
+    // Sort contacts by City using Java Streams
+    public void sortByCity() {
+        cotacts_array.stream()
+                .sorted(Comparator.comparing(Contact::getCity))
+                .collect(Collectors.toList());
+        System.out.println(" After Sort City : ");
+        this.display();
+    }
 
+    // Sort contacts by State using Java Streams
+    public void sortByState() {
+        cotacts_array.stream()
+                .sorted(Comparator.comparing(Contact::getState))
+                .collect(Collectors.toList());
+        System.out.println(" After Sort State : ");
+        this.display();
+
+    }
 
 
 
@@ -282,9 +312,9 @@ public class AddressBook {
 //            System.out.println("No contacts in address book");
 //        } else {
         for (Contact contact : cotacts_array) {
-            if (contact.getName()!=null) {
+            if (contact.getName() != null) {
 //                cotacts_array.remove(contact);
-                System.out.println("==============="+contact);
+                System.out.println("===============" + contact);
             } else {
                 System.out.println("Values Not Found");
             }
@@ -292,4 +322,4 @@ public class AddressBook {
     }
 
 
-    }
+}
