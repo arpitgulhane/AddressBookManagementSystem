@@ -172,34 +172,98 @@ public class AddressBook {
 //            return new ArrayList<>();
 //        }
 //    }
-    public List<Contact> getContactsByCity() {
+
+
+
+    // working code before Use Java Streams
+//    public List<Contact> getContactsByCity() {
+//        System.out.println("To get contact by city enter City Name :");
+//        Scanner sc=new Scanner(System.in);
+//        String city=sc.nextLine();
+//        // check in Dictionary
+//        if (cityDictionary.containsKey(city)) {
+//             cityDictionary.get(city);
+//        } else {
+//             new ArrayList<>();
+//        }
+//        for (Contact contact : contactsInAnycity) {
+//        System.out.println(contact);
+//    }
+//        return null;
+//    }
+
+//    public List<Contact> getContactsByState() {
+//        System.out.println("To get contact by city enter City Name :");
+//        Scanner sc=new Scanner(System.in);
+//        String state=sc.nextLine();
+//        if (stateDictionary.containsKey(state)) {
+//            stateDictionary.get(state);
+//        } else {
+//            new ArrayList<>();
+//        }
+//        for (Contact contact : contactsInCA) {
+//        System.out.println(contact); }
+//        return null;
+//    }
+
+//    public void getContactCountByCity() {
+//        System.out.println("To get count enter City Name :");
+//        Scanner sc=new Scanner(System.in);
+//        String city=sc.nextLine();
+//        if (cityDictionary.containsKey(city)) {
+//            System.out.println(cityDictionary.get(city).size());
+//        } else {
+//            System.out.println("Not Found");
+//        }
+//    }
+
+//    public void getContactCountByState() {
+//        System.out.println("To get count enter State Name :");
+//        Scanner sc=new Scanner(System.in);
+//        String state=sc.nextLine();
+//        if (stateDictionary.containsKey(state)) {
+//            System.out.println(stateDictionary.get(state).size());
+//        } else {
+//            System.out.println("Not Found");
+//        }
+//    }
+
+    //--------------------New by Streams ------------------------------
+    public void getContactsByCity() {
         System.out.println("To get contact by city enter City Name :");
         Scanner sc=new Scanner(System.in);
         String city=sc.nextLine();
-        // check in Dictionary
-        if (cityDictionary.containsKey(city)) {
-             cityDictionary.get(city);
-        } else {
-             new ArrayList<>();
-        }
-        for (Contact contact : contactsInAnycity) {
-        System.out.println(contact);
+        cityDictionary.getOrDefault(city, Collections.emptyList()).forEach(n-> System.out.println(n));
     }
-        return null;
-    }
-    public List<Contact> getContactsByState() {
+
+    public void getContactsByState() {
         System.out.println("To get contact by city enter City Name :");
         Scanner sc=new Scanner(System.in);
         String state=sc.nextLine();
-        if (stateDictionary.containsKey(state)) {
-            stateDictionary.get(state);
-        } else {
-            new ArrayList<>();
-        }
-        for (Contact contact : contactsInCA) {
-        System.out.println(contact); }
-        return null;
+        stateDictionary.getOrDefault(state, Collections.emptyList()).forEach(n-> System.out.println(n));
     }
+
+    public void getContactCountByCity() {
+        System.out.println("To get count enter City Name :");
+        Scanner sc=new Scanner(System.in);
+        String city=sc.nextLine();
+        int count = cityDictionary.getOrDefault(city, Collections.emptyList()).size();
+        System.out.println(count);
+    }
+
+    public void getContactCountByState() {
+        System.out.println("To get count enter State Name :");
+        Scanner sc=new Scanner(System.in);
+        String state=sc.nextLine();
+        int count = stateDictionary.getOrDefault(state, Collections.emptyList()).size();
+        System.out.println(count);
+    }
+
+
+
+
+
+
 
 
 //    public void printContacts() {
