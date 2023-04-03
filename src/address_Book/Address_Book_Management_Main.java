@@ -80,7 +80,7 @@ public class Address_Book_Management_Main {
                         int exit=sc.nextInt();
                        Scanner sc2 =new Scanner(System.in);
                             while (exit!=0){
-                                System.out.print("Enter command (add, edit , searchcitystate,ContactsByCity,ContactsByState ,ContactCountByCity,ContactCountByState, delete, exit): ");
+                                System.out.print("Enter command (add, edit ,Display, searchcitystate, sortByName ,ContactsByCity,ContactsByState ,ContactCountByCity,ContactCountByState, delete, exit): ");
                                 String command =sc2.nextLine();
                                 switch (command) {
                                     case "add":
@@ -89,8 +89,14 @@ public class Address_Book_Management_Main {
                                     case "edit":
                                         addressBook.editPersonDetails();
                                         break;
+                                    case "Display":
+                                        addressBook.display();
+                                        break;
                                     case "searchcitystate":
                                         addressBook.searchDetailsByCityOrState();
+                                        break;
+                                    case "sortByName":
+                                        addressBook.sortByName();
                                         break;
                                     case "ContactsByCity":
                                         addressBook.getContactsByCity();

@@ -260,30 +260,36 @@ public class AddressBook {
     }
 
 
+    public void sortByName() {
+        Comparator<Contact> comparator = Comparator.comparing(Contact::getName)
+                .thenComparing(Contact::getLast_N);
+        Collections.sort(this.cotacts_array, comparator);
+    }
 
 
 
 
 
-
-//    public void printContacts() {
-////        if (Contact.isEmpty()) {
-////            System.out.println("No contacts in address book");
-////        } else {
-////            for (ContactPerson contact : contacts) {
-////                System.out.println(contact);
-////            }
-////        }
-//
-////            System.out.println("No contacts in address book");
-////        } else {
-//        for (Contact contact : cotacts_array) {
-//            if (contact.getName()!=null) {
-////                cotacts_array.remove(contact);
-//                System.out.println("==============="+contact);
-//            } else {
-//                System.out.println("Values Not Found");
+    public void display() {
+//        if (Contact.isEmpty()) {
+//            System.out.println("No contacts in address book");
+//        } else {
+//            for (ContactPerson contact : contacts) {
+//                System.out.println(contact);
 //            }
 //        }
-//    }
+
+//            System.out.println("No contacts in address book");
+//        } else {
+        for (Contact contact : cotacts_array) {
+            if (contact.getName()!=null) {
+//                cotacts_array.remove(contact);
+                System.out.println("==============="+contact);
+            } else {
+                System.out.println("Values Not Found");
+            }
+        }
+    }
+
+
     }
