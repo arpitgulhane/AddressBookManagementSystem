@@ -43,35 +43,35 @@ public class Address_Book_Management_Main {
                     while (exit != 0) {
                         while (exit != 0) {
                             Scanner sc1 = new Scanner(System.in);
-                            System.out.print("Enter command \t\t( add , edit , Display , searchcitystate ," +
-                                    "\t sortByName , sortByCity , sortByState , sortByZip , \n" +
+                            System.out.print("Enter command \t\t( Add , Edit , Display , Searchcitystate ," +
+                                    "\t SortByName , SortByCity , SortByState , SortByZip , \n" +
                                     "\t \t\t \t\t \tContactsByCity , ContactsByState , ContactCountByCity , ContactCountByState ," +
-                                    "writeToFile"+"readFromFile"+
-                                    "\t delete , exit ): \n");
+                                    "WriteToFile"+"ReadFromFile"+
+                                    "\t Delete , Exit ): \n");
                             String command = sc1.nextLine();
                             switch (command) {
-                                case "add":
+                                case "Add":
                                     addressBook.addPersonDetails();
                                     break;
-                                case "edit":
+                                case "Edit":
                                     addressBook.editPersonDetails();
                                     break;
                                 case "Display":
                                     addressBook.display();
                                     break;
-                                case "searchcitystate":
+                                case "Searchcitystate":
                                     addressBook.searchDetailsByCityOrState();
                                     break;
-                                case "sortByName":
+                                case "SortByName":
                                     addressBook.sortByName();
                                     break;
-                                case "sortByCity":
+                                case "SortByCity":
                                     addressBook.sortByCity();
                                     break;
-                                case "sortByState":
+                                case "SortByState":
                                     addressBook.sortByState();
                                     break;
-                                case "sortByZip":
+                                case "SortByZip":
                                     addressBook.sortByZip();
                                     break;
                                 case "ContactsByCity":
@@ -86,16 +86,16 @@ public class Address_Book_Management_Main {
                                 case "ContactCountByState":
                                     addressBook.getContactCountByState();
                                     break;
-                                case "writeToFile":
+                                case "WriteToFile":
                                     addressBook.writeToFile();
                                     break;
-                                case "readFromFile":
+                                case "ReadFromFile":
                                     addressBook.readFromFile();
                                     break;
-                                case "delete":
+                                case "Delete":
                                     addressBook.deletePersonDetails();
                                     break;
-                                case "exit":
+                                case "Exit":
                                     break;
 //                                   addressBook.printContacts();
                             }
@@ -119,35 +119,35 @@ public class Address_Book_Management_Main {
                 int exit = sc.nextInt();
                 Scanner sc2 = new Scanner(System.in);
                 while (exit != 0) {
-                    System.out.print("Enter command \t\t( add , edit , Display , searchcitystate ," +
-                            "\t sortByName , sortByCity , sortByState , sortByZip , \n" +
+                    System.out.print("Enter command \t\t( Add , Edit , Display , Searchcitystate ," +
+                            "\t SortByName , SortByCity , SortByState , SortByZip , \n" +
                             "\t \t\t \t\t \tContactsByCity , ContactsByState , ContactCountByCity , ContactCountByState ," +
-                            "writeToFile"+"readFromFile"+
-                            "\t delete , exit ): \n");
+                            "WriteToFile"+"ReadFromFile"+
+                            "\t Delete , Exit ): \n");
                     String command = sc2.nextLine();
                     switch (command) {
-                        case "add":
+                        case "Add":
                             addressBook.addPersonDetails();
                             break;
-                        case "edit":
+                        case "Edit":
                             addressBook.editPersonDetails();
                             break;
                         case "Display":
                             addressBook.display();
                             break;
-                        case "searchcitystate":
+                        case "Searchcitystate":
                             addressBook.searchDetailsByCityOrState();
                             break;
-                        case "sortByName":
+                        case "SortByName":
                             addressBook.sortByName();
                             break;
-                        case "sortByCity":
+                        case "SortByCity":
                             addressBook.sortByCity();
                             break;
-                        case "sortByState":
+                        case "SortByState":
                             addressBook.sortByState();
                             break;
-                        case "sortByZip":
+                        case "SortByZip":
                             addressBook.sortByZip();
                             break;
                         case "ContactsByCity":
@@ -162,16 +162,16 @@ public class Address_Book_Management_Main {
                         case "ContactCountByState":
                             addressBook.getContactCountByState();
                             break;
-                        case "writeToFile":
+                        case "WriteToFile":
                             addressBook.writeToFile();
                             break;
-                        case "readFromFile":
+                        case "ReadFromFile":
                             addressBook.readFromFile();
                             break;
-                        case "delete":
+                        case "Delete":
                             addressBook.deletePersonDetails();
                             break;
-                        case "exit":
+                        case "Exit":
                             break;
 //                                   addressBook.printContacts();
                     }

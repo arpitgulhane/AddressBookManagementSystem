@@ -10,7 +10,22 @@ public class Contact {
         private String city;
         private String state;
         private String number;
-        private String email;
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "name='" + name + '\'' +
+                ", last_Name='" + last_Name + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", number='" + number + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", zip='" + zip + '\'' +
+                '}';
+    }
+
+    private String email;
         private String address;
         private String zip;
 

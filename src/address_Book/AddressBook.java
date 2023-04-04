@@ -28,7 +28,7 @@ public class AddressBook {
         System.out.println("          Enter First Name :");
         String name = sc.nextLine();
         if (isDuplicate(name)) {
-            System.out.println(name + "  Already in contacts ...");
+            System.out.println(name + "arpit these  Already in contacts ...");
             return;
         }
         System.out.println("          Enter Last Name :");
@@ -84,7 +84,7 @@ public class AddressBook {
                 contact.setZip(new_zip);
                 System.out.println("Update ...");
             } else {
-                System.out.println("Sorry Not found");
+                System.out.println("Sorry arpit Data Not found");
             }
         }
     }
@@ -99,8 +99,9 @@ public class AddressBook {
             if (deleteNameContact.equals(contact.getName())) {
                 cotacts_array.remove(contact);
                 System.out.println("Contact Deleted ....");
+                return;
             } else {
-                System.out.println("Values you enter Not Found");
+                System.out.println("arpit Values you enter Not Found");
             }
         }
     }
@@ -137,7 +138,6 @@ public class AddressBook {
             }
         }
     }
-
 
     public void addContactToDictionary(Contact contact) {
         String city = contact.getCity();
@@ -302,25 +302,27 @@ public class AddressBook {
     //-------------------------------------------------------------------------
     // Write the address book to a file
     public void writeToFile() {
-        System.out.println("\n Enter File Path to Write :\n");
+        System.out.println("\n Enter File Path to Write : ex: C:\\Users\\USER\\Desktop\\arpit2.txt\n");
         Scanner sc = new Scanner(System.in);
         String filepath = sc.nextLine();
 ////        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
         try (FileWriter fileWriter = new FileWriter(filepath);) {
             fileWriter.write(String.valueOf(cotacts_array));
+            System.out.println("Write Contacts To File ~ "+filepath);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void readFromFile() {
-        System.out.println("\n Enter File Path to Write :\n");
+        System.out.println("\n Enter file Path to read : ex: C:\\Users\\USER\\Desktop\\arpit2.txt\n");
         Scanner sc = new Scanner(System.in);
         String filepath = sc.nextLine();
 
 //        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
         try (BufferedReader br  = new BufferedReader(new FileReader(filepath));) {
             String str;
+            System.out.println("Read from "+filepath);
             while ((str = br.readLine()) != null){
                 System.out.println(str);
             }
