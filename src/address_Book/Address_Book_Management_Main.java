@@ -21,7 +21,7 @@ public class Address_Book_Management_Main {
         int check = 1;
 
         do {
-            System.out.println("       ~ ~ ~ Enter BOOK Name ~ ~ ~         ");
+            System.out.println("\n       ~ ~ ~ Enter BOOK Name ~ ~ ~         ");
             String getBookName = get.next();
 
 // ---------- To Add AddressBook 2nd time (check)----------------------------------------------
@@ -38,12 +38,16 @@ public class Address_Book_Management_Main {
 
                     //--------T0 add contact
                     Scanner sc = new Scanner(System.in);
-                    System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  :: To EXIT ( 0 ZERO ) ~ ~ ~             ");
+                    System.out.println("\n             ~ ~ ~ ADD NEW CONTACT press 1-9  :: To EXIT ( 0 ZERO ) ~ ~ ~             ");
                     int exit = sc.nextInt();
                     while (exit != 0) {
                         while (exit != 0) {
                             Scanner sc1 = new Scanner(System.in);
-                            System.out.print("Enter command (add, edit ,Display, searchcitystate, sortByName ,sortByCity,sortByState,sortByZip,ContactsByCity,ContactsByState ,ContactCountByCity,ContactCountByState, delete, exit): ");
+                            System.out.print("Enter command \t\t( add , edit , Display , searchcitystate ," +
+                                    "\t sortByName , sortByCity , sortByState , sortByZip , \n" +
+                                    "\t \t\t \t\t \tContactsByCity , ContactsByState , ContactCountByCity , ContactCountByState ," +
+                                    "writeToFile"+"readFromFile"+
+                                    "\t delete , exit ): \n");
                             String command = sc1.nextLine();
                             switch (command) {
                                 case "add":
@@ -82,6 +86,12 @@ public class Address_Book_Management_Main {
                                 case "ContactCountByState":
                                     addressBook.getContactCountByState();
                                     break;
+                                case "writeToFile":
+                                    addressBook.writeToFile();
+                                    break;
+                                case "readFromFile":
+                                    addressBook.readFromFile();
+                                    break;
                                 case "delete":
                                     addressBook.deletePersonDetails();
                                     break;
@@ -89,10 +99,10 @@ public class Address_Book_Management_Main {
                                     break;
 //                                   addressBook.printContacts();
                             }
-                            System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To EXIT press (0 ZERO) ~ ~ ~             ");
+                            System.out.println("\n             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To EXIT press (0 ZERO) ~ ~ ~             ");
                             exit = sc.nextInt();
                         }
-                        System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
+                        System.out.println("\n             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
                         exit = sc.nextInt();
                     }
                 }
@@ -105,11 +115,15 @@ public class Address_Book_Management_Main {
 
                 //--------T0 add contact
                 Scanner sc = new Scanner(System.in);
-                System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
+                System.out.println("\n             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To Exit press (0 ZERO) ~ ~ ~             ");
                 int exit = sc.nextInt();
                 Scanner sc2 = new Scanner(System.in);
                 while (exit != 0) {
-                    System.out.print("Enter command (add, edit ,Display, searchcitystate, sortByName ,sortByCity,sortByState,sortByZip,ContactsByCity,ContactsByState ,ContactCountByCity,ContactCountByState, delete, exit): ");
+                    System.out.print("Enter command \t\t( add , edit , Display , searchcitystate ," +
+                            "\t sortByName , sortByCity , sortByState , sortByZip , \n" +
+                            "\t \t\t \t\t \tContactsByCity , ContactsByState , ContactCountByCity , ContactCountByState ," +
+                            "writeToFile"+"readFromFile"+
+                            "\t delete , exit ): \n");
                     String command = sc2.nextLine();
                     switch (command) {
                         case "add":
@@ -148,6 +162,12 @@ public class Address_Book_Management_Main {
                         case "ContactCountByState":
                             addressBook.getContactCountByState();
                             break;
+                        case "writeToFile":
+                            addressBook.writeToFile();
+                            break;
+                        case "readFromFile":
+                            addressBook.readFromFile();
+                            break;
                         case "delete":
                             addressBook.deletePersonDetails();
                             break;
@@ -155,11 +175,11 @@ public class Address_Book_Management_Main {
                             break;
 //                                   addressBook.printContacts();
                     }
-                    System.out.println("             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To EXIT press (0 ZERO) ~ ~ ~             ");
+                    System.out.println("\n             ~ ~ ~ ADD NEW CONTACT press 1-9  ::  To EXIT press (0 ZERO) ~ ~ ~             ");
                     exit = sc.nextInt();
                 }
             }
-            System.out.println("             ~ ~ ~ press 1 to 9 add onemore ADDRESS BOOK  ::  Exit ( 0 ZERO ) ~ ~ ~              ");
+            System.out.println("\n             ~ ~ ~ press 1 to 9 add onemore ADDRESS BOOK  ::  Exit ( 0 ZERO ) ~ ~ ~              ");
             getMoreBook = get.nextInt();
         } while (getMoreBook == 1);
     }

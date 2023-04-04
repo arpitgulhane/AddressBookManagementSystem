@@ -1,5 +1,6 @@
 package address_Book;
 
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -52,7 +53,7 @@ public class AddressBook {
 
     //------------------        Edit person Details      -----------------------
     static void editPersonDetails() {
-        System.out.println("    Enter existing 'Email' and 'Number' to EDIT    ");
+        System.out.println("\n    Enter existing 'Email' and 'Number' to EDIT    \n");
         Scanner sc = new Scanner(System.in);
         String checkE = sc.nextLine();
         String checkNum = sc.nextLine();
@@ -90,7 +91,7 @@ public class AddressBook {
 
     //------------------        Delete person Details       -----------------------
     static void deletePersonDetails() {
-        System.out.println("    Enter Name to delete that CONTACT :");
+        System.out.println("\n    Enter Name to delete that CONTACT : \n");
         Scanner sc = new Scanner(System.in);
         String deleteNameContact = sc.nextLine();
 //        Contact contact;
@@ -115,7 +116,7 @@ public class AddressBook {
     }
 
     static void searchDetailsByCityOrState() {
-        System.out.println("    Enter City Or State to search :");
+        System.out.println("\n    Enter City Or State to search :\n");
         Scanner sc = new Scanner(System.in);
         String search_CityOrState = sc.nextLine();
         int i = 1;
@@ -235,21 +236,21 @@ public class AddressBook {
 
     //--------------------New by Streams ------------------------------
     public void getContactsByCity() {
-        System.out.println("To get contact by city enter City Name :");
+        System.out.println("\nTo get contact by city enter City Name :\n");
         Scanner sc = new Scanner(System.in);
         String city = sc.nextLine();
         cityDictionary.getOrDefault(city, Collections.emptyList()).forEach(n -> System.out.println(n));
     }
 
     public void getContactsByState() {
-        System.out.println("To get contact by city enter City Name :");
+        System.out.println("\nTo get contact by city enter City Name :\n");
         Scanner sc = new Scanner(System.in);
         String state = sc.nextLine();
         stateDictionary.getOrDefault(state, Collections.emptyList()).forEach(n -> System.out.println(n));
     }
 
     public void getContactCountByCity() {
-        System.out.println("To get count enter City Name :");
+        System.out.println("\nTo get count enter City Name :\n");
         Scanner sc = new Scanner(System.in);
         String city = sc.nextLine();
         int count = cityDictionary.getOrDefault(city, Collections.emptyList()).size();
@@ -257,7 +258,7 @@ public class AddressBook {
     }
 
     public void getContactCountByState() {
-        System.out.println("To get count enter State Name :");
+        System.out.println("\nTo get count enter State Name :\n");
         Scanner sc = new Scanner(System.in);
         String state = sc.nextLine();
         int count = stateDictionary.getOrDefault(state, Collections.emptyList()).size();
@@ -270,7 +271,7 @@ public class AddressBook {
         cotacts_array.stream()
                 .sorted(Comparator.comparing(Contact::getZip))
                 .collect(Collectors.toList());
-        System.out.println(" After Sort Zip : ");
+        System.out.println("\n After Sort Zip : \n");
         this.display();
     }
     public void sortByName() {
@@ -284,7 +285,7 @@ public class AddressBook {
         cotacts_array.stream()
                 .sorted(Comparator.comparing(Contact::getCity))
                 .collect(Collectors.toList());
-        System.out.println(" After Sort City : ");
+        System.out.println("\n After Sort City : \n");
         this.display();
     }
 
@@ -293,12 +294,41 @@ public class AddressBook {
         cotacts_array.stream()
                 .sorted(Comparator.comparing(Contact::getState))
                 .collect(Collectors.toList());
-        System.out.println(" After Sort State : ");
+        System.out.println("\n After Sort State : \n");
         this.display();
 
     }
 
+    //-------------------------------------------------------------------------
+    // Write the address book to a file
+    public void writeToFile() {
+        System.out.println("\n Enter File Path to Write :\n");
+        Scanner sc = new Scanner(System.in);
+        String filepath = sc.nextLine();
+////        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+        try (FileWriter fileWriter = new FileWriter(filepath);) {
+            fileWriter.write(String.valueOf(cotacts_array));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void readFromFile() {
+        System.out.println("\n Enter File Path to Write :\n");
+        Scanner sc = new Scanner(System.in);
+        String filepath = sc.nextLine();
+
+//        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+        try (BufferedReader br  = new BufferedReader(new FileReader(filepath));) {
+            String str;
+            while ((str = br.readLine()) != null){
+                System.out.println(str);
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void display() {
 //        if (Contact.isEmpty()) {
@@ -314,7 +344,7 @@ public class AddressBook {
         for (Contact contact : cotacts_array) {
             if (contact.getName() != null) {
 //                cotacts_array.remove(contact);
-                System.out.println("===============" + contact);
+                System.out.println(contact);
             } else {
                 System.out.println("Values Not Found");
             }
